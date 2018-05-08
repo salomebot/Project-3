@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Breast Cancer Machine Learning</title>
+
+    <!-- Boostrap Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" media="screen">
+
+    <!-- Our own CSS stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" media="screen">
+
+  </head>
+
+  <body>
+    <!-- Start of navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid navbar-custom">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="row">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle Navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="col-6">
+              <a class="navbar-brand" href="/" id="logo">Breast Cancer Machine Learning</a>
+            </div>
+          </div>
+          <div class = "col-2">
+            <img src="{{ url_for('static', filename='images/pink_ribbon.png') }}" id="ribbon-image">
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right navbar-right-custom">
+              <li>
+                <a href="/visualization" role="button" aria-haspopup="true" aria-expanded="false">Visualization</a>
+              </li>
+              <li>
+                <a href="/features" role="button" aria-haspopup="true" aria-expanded="false">Feature Engineering</a>
+              </li>
+              <li>
+                <a href="/diagnosis_app" role="button" aria-haspopup="true" aria-expanded="false">Diagnosis App</a>
+              </li>
+              <li>
+                <a href="data1" role="button" aria-haspopup="true" aria-expanded="false">Data</a>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- End of navbar -->
+
+    <!-- Start of container -->
+    <div class="container">
+      <section class="row">
+        <div class="col-md-8">
+          <article class="description-content">
+            <p><h1 class="description-header">Project Overview</h1>
+                <hr>
+                The purpose of this project was to develop a highly accurate machine learning model to predict breast cancer diagnosis and prognosis based on
+                the <a href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)">Wisconsin Breast Cancer Data</a>.
+            <h3 class="description-header">Data Sets</h3>
+            <hr>
+
+                <ul>
+                    <li><a href="/data1">Malignant vs benign</a> (569 samples, 30 features)</li>
+                 <!--    <li><a href="/data2">Recurrent vs nonrecurrent</a> (198 samples, 32 features)</li>-->
+                  </ul>
+                    <h3 class="description-header">Cell Nucleus Attributes</h3>
+                    <hr>
+                    <iframe class="chart" src="{{ iframe }}" style="height:600px;width:900px;" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe>
+
+              </p>
+              <h3 class="description-header">Citation</h3>
+              <p style="font-size:20px">Dua, D. and Karra Taniskidou, E. (2017). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.</p>
+              <h4>Creators:</h4>
+              <ul>
+                <li style="font-size:20px">
+                  Dr. William H. Wolberg, General Surgery Dept. <br>
+                  University of Wisconsin, Clinical Sciences Center <br>
+                  Madison, WI 53792 <br>
+                  wolberg@eagle.surgery.wisc.edu 
+                </li>
+                <li style="font-size:20px">
+                    W. Nick Street, Computer Sciences Dept. <br>
+                    University of Wisconsin, 1210 West Dayton St. <br> 
+                    Madison, WI 53706 <br>
+                    street@cs.wisc.edu 608-262-6619 
+                </li>
+                <li style="font-size:20px">
+                    Olvi L. Mangasarian, Computer Sciences Dept. <br>
+                    University of Wisconsin, 1210 West Dayton St. <br> 
+                    Madison, WI 53706 <br>
+                    olvi@cs.wisc.edu 
+                </li>
+              </ul>
+          </article>
+        </div>
+        <div class="col-md-4">
+
+          <!-- Start of Visualizations imageNav Area -->
+          <section id="imageNav-area">
+            <div class="imageNav-content">
+              <h2 class="imageNav-header">Visualizations</h2>
+              <hr />
+              <div id="images">
+                <a href="/visualization"><img src="{{ url_for('static', filename='images/output.png') }}" alt="Latitude vs. Max Temperature" class="imageNav-photo"></a>
+                <br/>
+                <hr>
+                <h2 class="imageNav-header">Cell Nucleus</h2>
+                <br/>
+                <img src="{{ url_for('static', filename='images/breast_cancer_benign.png') }}" class="imageNav-photo">
+                <img src="{{ url_for('static', filename='images/breast_cancer_malignant.png') }}" class="imageNav-photo">
+
+              </div>
+           </div>
+          </section>
+      </div>
+          <!-- End of the Visualizations imageNav Area -->
+
+        </div>
+      </section>
+    </div>
+
+
+    <!-- End of container -->
+
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="two-toned-footer-color"></div>
+      <p class="text-muted text-muted-footer text-center">
+        <a href="https://github.com/sharonsu94/breast-cancer-prediction.git">Github link</a>
+
+      </p>
+    </footer>
+    <!-- End of footer -->
+
+    <!-- jQuery CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+      function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+      }
+    </script>
+    <!-- Bootstrap CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+
+</html>
